@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { BestSellers, FaqList } from "@components";
+import { BestSellers } from "@components";
+import { ContactForm } from "@components";
 
-export default function FAQPage() {
+export default function ContactPage() {
   return (
     <div className="bg-[#ffffff] box-border content-stretch flex flex-col items-start justify-start p-0 relative w-full">
       {/* Content Section */}
@@ -25,19 +26,36 @@ export default function FAQPage() {
               </div>
             </div>
             <div className="font-['DM_Sans:Regular',_sans-serif] font-normal opacity-50 relative shrink-0 text-[#274348] text-sm md:text-[14px] text-left text-nowrap tracking-tight md:tracking-[-0.14px]">
-              <p className="block leading-[1.2] whitespace-pre">FAQ</p>
+              <p className="block leading-[1.2] whitespace-pre">Contact us</p>
             </div>
           </div>
 
           {/* Title Section */}
           <div className="box-border content-stretch flex flex-col gap-4 md:gap-5 items-center justify-center pb-5 pt-0 px-0 relative shrink-0 w-full">
             <div className="font-['Epilogue:Bold',_sans-serif] font-bold relative shrink-0 text-[#274348] text-3xl md:text-[48px] text-left tracking-tight md:tracking-[-0.48px] w-full">
-              <p className="block leading-[1.2]">Frequently Asked Questions</p>
+              <p className="block leading-[1.2]">Contact us</p>
             </div>
           </div>
 
-          {/* FAQ Sections */}
-          <FaqList />
+          {/* Description Text */}
+          <div className="font-['DM_Sans:Regular',_sans-serif] font-normal relative shrink-0 text-[#274348] text-base md:text-[18px] text-left w-full">
+            <p className="leading-[1.5] mb-4">
+              <span>Our customer service is here for you! </span>
+              <span className="font-['DM_Sans:Bold',_sans-serif] font-bold">
+                Please use the contact form below
+              </span>
+              <span> to get in touch with us directly.</span>
+            </p>
+            <p className="leading-[1.5]">
+              <span>Alternatively, you can also send us an email at </span>
+              <span className="underline cursor-pointer hover:text-[#19bf98] transition-colors duration-200">
+                support@healthycore.com
+              </span>
+            </p>
+          </div>
+
+          {/* Contact Form */}
+          <ContactForm />
         </div>
       </div>
 

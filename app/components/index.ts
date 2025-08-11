@@ -10,3 +10,5 @@ export * from "./layout/BestSellers";
 export * from "./layout/Innovation";
 export * from "./layout/Testimonials";
 export * from "./layout/WhyItWorks";
+export * from "./layout/FaqList";
+export * from "./layout/ContactForm";
