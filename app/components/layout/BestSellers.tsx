@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { products } from "@lib/data";
 
-export const BestSellers = () => {
+export const BestSellers = ({ isHomePage }: { isHomePage?: boolean }) => {
   // Get top 2 products
   const topProducts = products.slice(0, 2);
 
@@ -13,7 +13,11 @@ export const BestSellers = () => {
 
   return (
     <div className="box-border content-stretch flex flex-col gap-6 md:gap-10 items-center justify-center pb-16 md:pb-32 pt-12 md:pt-24 px-6 md:px-10 relative w-full">
-      <div className="box-border content-stretch flex flex-col gap-8 md:gap-12 items-start justify-center p-0 relative shrink-0 w-full max-w-[1400px]">
+      <div
+        className={`box-border content-stretch flex flex-col gap-8 md:gap-12 items-start justify-center p-0 relative shrink-0 w-full ${
+          isHomePage ? "max-w-[1400px]" : "max-w-[1080px]"
+        }`}
+      >
         {/* Title Section */}
         <div className="box-border content-stretch flex flex-col md:flex-row gap-4 md:gap-5 items-start md:items-center justify-start p-0 relative shrink-0 w-full">
           <div className="font-['Epilogue:Bold',_sans-serif] font-bold relative shrink-0 text-[#274348] text-3xl md:text-[48px] text-left tracking-tight md:tracking-[-0.48px]">
@@ -84,7 +88,9 @@ export const BestSellers = () => {
 
                 {/* Add to Cart Button */}
                 <div
-                  className="box-border content-stretch flex flex-row gap-2 items-center justify-center pl-4 pr-5 py-3 relative rounded-[999px] shrink-0 cursor-pointer hover:bg-[#274348] hover:text-white transition-all duration-200 border border-[#274348] border-solid"
+                  className={`box-border content-stretch flex flex-row gap-2 items-center justify-center pl-4 pr-5 py-3 relative rounded-[999px] shrink-0 cursor-pointer text-[#274348]  hover:bg-[#274348] hover:text-white transition-all duration-200 border border-[#274348] border-solid ${
+                    isHomePage ? "bg-transparent" : "bg-white"
+                  }`}
                   onClick={() => handleAddToCart(product.id)}
                 >
                   <div className="overflow-clip relative shrink-0 w-6 h-6">
@@ -97,7 +103,7 @@ export const BestSellers = () => {
                     </div>
                   </div>
                   <div className="box-border content-stretch flex flex-row gap-2 h-6 items-center justify-center px-0 py-[0.5px] relative shrink-0">
-                    <div className="flex flex-col font-['DM_Sans:Bold',_sans-serif] font-bold justify-center relative shrink-0 text-[#274348] text-sm md:text-[14px] text-left text-nowrap tracking-tight md:tracking-[-0.14px] uppercase">
+                    <div className="flex flex-col font-['DM_Sans:Bold',_sans-serif] font-bold justify-center relative shrink-0 text-sm md:text-[14px] text-left text-nowrap tracking-tight md:tracking-[-0.14px] uppercase">
                       <p className="block leading-[1.2] whitespace-pre">
                         Add to cart
                       </p>
