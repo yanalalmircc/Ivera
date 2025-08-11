@@ -1,0 +1,58 @@
+export const products = [
+  {
+    id: 1,
+    name: "Slimvera (250ml)",
+    price: 59.49,
+    oldPrice: 85.49,
+    image: "/images/product-1.png",
+  },
+  {
+    id: 2,
+    name: "Slimvera (320ml)",
+    price: 102.99,
+    oldPrice: null,
+    image: "/images/product-1.png",
+  },
+  {
+    id: 3,
+    name: "Slimvera (250ml)",
+    price: 59.49,
+    oldPrice: 85.49,
+    image: "/images/product-1.png",
+  },
+  {
+    id: 4,
+    name: "Slimvera (320ml)",
+    price: 102.99,
+    oldPrice: null,
+    image: "/images/product-1.png",
+  },
+  {
+    id: 5,
+    name: "Slimvera (250ml)",
+    price: 59.49,
+    oldPrice: 85.49,
+    image: "/images/product-1.png",
+  },
+  {
+    id: 6,
+    name: "Slimvera (320ml)",
+    price: 102.99,
+    oldPrice: null,
+    image: "/images/product-1.png",
+  },
+  {
+    id: 7,
+    name: "Slimvera (250ml)",
+    price: 59.49,
+    oldPrice: 85.49,
+    image: "/images/product-1.png",
+  },
+  {
+    id: 8,
+    name: "Slimvera (320ml)",
+    price: 102.99,
+    oldPrice: null,
+    image: "/images/product-1.png",
+  },
+];
