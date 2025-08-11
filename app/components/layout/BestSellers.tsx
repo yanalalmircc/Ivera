@@ -51,7 +51,7 @@ export const BestSellers = ({ isHomePage }: { isHomePage?: boolean }) => {
             >
               {/* Product Image */}
               <Link
-                href={`/product/${product.id}`}
+                href={`/products/${product.id}`}
                 className="bg-[#fbfaf7] bg-center bg-cover bg-no-repeat shrink-0 w-full lg:w-80 h-64 lg:h-80 cursor-pointer hover:opacity-90 transition-opacity duration-200"
                 style={{ backgroundImage: `url('${product.image}')` }}
               />
@@ -61,7 +61,7 @@ export const BestSellers = ({ isHomePage }: { isHomePage?: boolean }) => {
                 <div className="box-border content-stretch flex flex-col gap-2 items-start justify-start p-0 relative shrink-0 w-full">
                   {/* Product Name */}
                   <Link
-                    href={`/product/${product.id}`}
+                    href={`/products/${product.id}`}
                     className="font-['DM_Sans:Bold',_sans-serif] font-bold relative shrink-0 text-[#274348] text-xl md:text-[24px] text-left tracking-tight md:tracking-[-0.24px] w-full cursor-pointer hover:text-[#19bf98] transition-colors duration-200"
                   >
                     <p className="block leading-[1.5]">{product.name}</p>
