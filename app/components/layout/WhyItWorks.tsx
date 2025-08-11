@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { ArrowRight } from "@icons";
 
 export const WhyItWorks = () => {
   return (
@@ -39,11 +40,7 @@ export const WhyItWorks = () => {
               <div className="absolute flex inset-[18.36%_16.67%_18.41%_18.41%] items-center justify-center">
                 <div className="flex-none h-[15.175px] rotate-[180deg] w-[15.582px] group-hover:translate-x-1 transition-transform duration-200">
                   <div className="relative w-full h-full">
-                    <img
-                      alt="arrow right"
-                      className="block max-w-none w-full h-full"
-                      src="/images/arrow-right.svg"
-                    />
+                    <ArrowRight />
                   </div>
                 </div>
               </div>
