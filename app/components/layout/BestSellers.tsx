@@ -20,7 +20,7 @@ export const BestSellers = ({ isHomePage }: { isHomePage?: boolean }) => {
       >
         {/* Title Section */}
         <div className="box-border content-stretch flex flex-col md:flex-row gap-4 md:gap-5 items-start md:items-center justify-start p-0 relative shrink-0 w-full">
-          <div className="font-['Epilogue:Bold',_sans-serif] font-bold relative shrink-0 text-[#274348] text-3xl md:text-[48px] text-left tracking-tight md:tracking-[-0.48px]">
+          <div className="font-['Epilogue:Bold',_sans-serif] font-bold relative shrink-0 text-[#274348] text-[32px] md:text-[48px] text-left tracking-[-0.32px] md:tracking-[-0.48px]">
             <p className="block leading-[1.2] whitespace-pre">
               Our Bestsellers
             </p>
@@ -62,60 +62,62 @@ export const BestSellers = ({ isHomePage }: { isHomePage?: boolean }) => {
                   {/* Product Name */}
                   <Link
                     href={`/products/${product.id}`}
-                    className="font-['DM_Sans:Bold',_sans-serif] font-bold relative shrink-0 text-[#274348] text-xl md:text-[24px] text-left tracking-tight md:tracking-[-0.24px] w-full cursor-pointer hover:text-[#19bf98] transition-colors duration-200"
+                    className="font-['DM_Sans:Bold',_sans-serif] font-bold relative shrink-0 text-[#274348] text-[18px] md:text-[24px] text-left tracking-[-0.18px] md:tracking-[-0.24px] w-full cursor-pointer hover:text-[#19bf98] transition-colors duration-200"
                   >
-                    <p className="block leading-[1.5]">{product.name}</p>
+                    <p className="block leading-[1.4] md:leading-[1.5]">
+                      {product.name}
+                    </p>
                   </Link>
 
                   {/* Price Section */}
-                  <div className="box-border content-stretch flex flex-row gap-3 items-center justify-center p-0 relative shrink-0">
-                    <div className="font-['DM_Sans:Bold',_sans-serif] font-bold relative shrink-0 text-[#19bf98] text-xl md:text-[24px] text-left text-nowrap tracking-tight md:tracking-[-0.24px]">
-                      <p className="block leading-[1.5] whitespace-pre">
-                        ${product.price}
-                      </p>
-                    </div>
+                  <div className="box-border content-stretch flex flex-col md:flex-row gap-3 items-start md:items-center justify-start p-0 relative shrink-0">
                     {product.oldPrice && (
                       <div className="box-border content-stretch flex flex-row gap-1 items-center justify-start p-0 relative shrink-0">
-                        <div className="font-['DM_Sans:Regular',_sans-serif] font-normal relative shrink-0 text-[#a4b4ba] text-sm md:text-[16px] text-left text-nowrap tracking-tight md:tracking-[-0.16px]">
+                        <div className="font-['DM_Sans:Regular',_sans-serif] font-normal relative shrink-0 text-[#a4b4ba] text-[14px] md:text-[16px] text-left text-nowrap tracking-[-0.14px] md:tracking-[-0.16px]">
                           <p className="[text-decoration-line:line-through] [text-decoration-skip-ink:none] [text-decoration-style:solid] [text-underline-position:from-font] block leading-[1.5] whitespace-pre">
                             ${product.oldPrice}
                           </p>
                         </div>
                       </div>
                     )}
-                  </div>
-                </div>
-
-                {/* Add to Cart Button */}
-                <div
-                  className={`box-border content-stretch flex flex-row gap-2 items-center justify-center pl-4 pr-5 py-3 relative rounded-[999px] shrink-0 cursor-pointer text-[#274348]  hover:bg-[#274348] hover:text-white transition-all duration-200 border border-[#274348] border-solid ${
-                    isHomePage ? "bg-transparent" : "bg-white"
-                  }`}
-                  onClick={() => handleAddToCart(product.id)}
-                >
-                  <div className="overflow-clip relative shrink-0 w-6 h-6">
-                    <div className="absolute inset-[16.667%]">
-                      <img
-                        alt="plus icon"
-                        className="block max-w-none w-full h-full"
-                        src="/images/plus-icon.svg"
-                      />
-                    </div>
-                  </div>
-                  <div className="box-border content-stretch flex flex-row gap-2 h-6 items-center justify-center px-0 py-[0.5px] relative shrink-0">
-                    <div className="flex flex-col font-['DM_Sans:Bold',_sans-serif] font-bold justify-center relative shrink-0 text-sm md:text-[14px] text-left text-nowrap tracking-tight md:tracking-[-0.14px] uppercase">
-                      <p className="block leading-[1.2] whitespace-pre">
-                        Add to cart
+                    <div className="font-['DM_Sans:Bold',_sans-serif] font-bold relative shrink-0 text-[#19bf98] text-[18px] md:text-[24px] text-left text-nowrap tracking-[-0.18px] md:tracking-[-0.24px]">
+                      <p className="block leading-[1.4] md:leading-[1.5] whitespace-pre">
+                        ${product.price}
                       </p>
                     </div>
                   </div>
                 </div>
+
+                {/* Add to Cart Button - Hidden on mobile for home page */}
+                {!isHomePage && (
+                  <div
+                    className="box-border content-stretch flex flex-row gap-2 items-center justify-center pl-4 pr-5 py-3 relative rounded-[999px] shrink-0 cursor-pointer text-[#274348] hover:bg-[#274348] hover:text-white transition-all duration-200 border border-[#274348] border-solid bg-white"
+                    onClick={() => handleAddToCart(product.id)}
+                  >
+                    <div className="overflow-clip relative shrink-0 w-6 h-6">
+                      <div className="absolute inset-[16.667%]">
+                        <img
+                          alt="plus icon"
+                          className="block max-w-none w-full h-full"
+                          src="/images/plus-icon.svg"
+                        />
+                      </div>
+                    </div>
+                    <div className="box-border content-stretch flex flex-row gap-2 h-6 items-center justify-center px-0 py-[0.5px] relative shrink-0">
+                      <div className="flex flex-col font-['DM_Sans:Bold',_sans-serif] font-bold justify-center relative shrink-0 text-sm md:text-[14px] text-left text-nowrap tracking-tight md:tracking-[-0.14px] uppercase">
+                        <p className="block leading-[1.2] whitespace-pre">
+                          Add to cart
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Discount Badge - Only show for products with oldPrice */}
               {product.oldPrice && (
-                <div className="absolute bg-[#d44646] box-border content-stretch flex flex-row gap-2.5 items-center justify-center left-5 px-3 py-2 rounded-2xl top-5">
-                  <div className="font-['DM_Sans:Bold',_sans-serif] font-bold relative shrink-0 text-[#ffffff] text-xs md:text-[12px] text-left text-nowrap tracking-tight md:tracking-[-0.12px]">
+                <div className="absolute bg-[#d44646] box-border content-stretch flex flex-row gap-2.5 items-center justify-center left-2.5 md:left-5 px-3 py-2 rounded-2xl top-2.5 md:top-5">
+                  <div className="font-['DM_Sans:Bold',_sans-serif] font-bold relative shrink-0 text-[#ffffff] text-[11px] md:text-[12px] text-left text-nowrap tracking-[-0.11px] md:tracking-[-0.12px]">
                     <p className="block leading-none whitespace-pre">30% OFF</p>
                   </div>
                 </div>
@@ -123,6 +125,27 @@ export const BestSellers = ({ isHomePage }: { isHomePage?: boolean }) => {
             </div>
           ))}
         </div>
+
+        {/* Mobile "All Products" Link - Only show on mobile for home page */}
+        {isHomePage && (
+          <div className="box-border content-stretch flex flex-row gap-5 items-center justify-start p-0 relative shrink-0 w-full md:hidden">
+            <div className="basis-0 grow h-0 min-h-px min-w-px relative shrink-0">
+              <div className="absolute bottom-[-0.5px] left-0 right-0 top-[-0.5px]">
+                <img
+                  alt="separator"
+                  className="block max-w-none w-full h-full"
+                  src="/images/separator.svg"
+                />
+              </div>
+            </div>
+            <Link
+              href="/products"
+              className="font-['DM_Sans:Bold',_sans-serif] font-bold relative shrink-0 text-[#274348] text-[15px] text-left text-nowrap tracking-[-0.15px] cursor-pointer hover:text-[#19bf98] transition-colors duration-200"
+            >
+              <p className="block leading-[1.2] whitespace-pre">All Products</p>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

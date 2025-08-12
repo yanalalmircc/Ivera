@@ -3,6 +3,7 @@ export * from "./global/Banner";
 export * from "./global/Navbar";
 export * from "./global/Cart";
 export * from "./global/Footer";
+export * from "./global/Hamburger";
 
 // layout components
 export * from "./layout/Hero";

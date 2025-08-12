@@ -36,10 +36,10 @@ export const Innovation = () => {
       >
         {/* Title Section */}
         <div className="box-border content-stretch flex flex-col gap-6 md:gap-8 items-center justify-start p-0 relative shrink-0 text-[#274348] text-center w-full">
-          <div className="font-['Epilogue:Bold',_sans-serif] font-bold relative shrink-0 text-3xl md:text-[48px] tracking-tight md:tracking-[-0.48px] w-full max-w-[1240px]">
+          <div className="font-['Epilogue:Bold',_sans-serif] font-bold relative shrink-0 text-[32px] md:text-[48px] tracking-[-0.32px] md:tracking-[-0.48px] w-full max-w-[1240px]">
             <p className="block leading-normal">Built on Innovation</p>
           </div>
-          <div className="font-['DM_Sans:Regular',_sans-serif] font-normal relative shrink-0 text-sm md:text-[16px] w-full max-w-[720px]">
+          <div className="font-['DM_Sans:Regular',_sans-serif] font-normal relative shrink-0 text-[14px] md:text-[16px] w-full max-w-[720px]">
             <p className="block leading-[1.5]">
               Our top-rated weight loss supplements are trusted by thousands to
               control cravings, support metabolism, and boost daily
@@ -55,10 +55,23 @@ export const Innovation = () => {
               key={benefit.id}
               className="flex flex-col lg:flex-row items-start gap-6 md:gap-8 w-full lg:w-auto"
             >
+              {/* Separator - Only show on mobile between items */}
+              {index > 0 && (
+                <div className="lg:hidden h-0 relative shrink-0 w-full">
+                  <div className="absolute bottom-[-0.5px] left-0 right-0 top-[-0.5px]">
+                    <img
+                      alt="separator"
+                      className="block max-w-none w-full h-full"
+                      src="/images/separator-vertical.svg"
+                    />
+                  </div>
+                </div>
+              )}
+
               {/* Benefit Item */}
               <div className="basis-0 box-border content-stretch flex flex-col gap-6 md:gap-8 grow items-start justify-start min-h-px min-w-px px-0 py-3 md:py-5 relative shrink-0 w-full lg:w-auto">
                 {/* Icon */}
-                <div className="h-16 md:h-20 relative shrink-0 w-16 md:w-[79px]">
+                <div className="h-[70px] md:h-20 relative shrink-0 w-[69px] md:w-[79px]">
                   <div className="absolute bottom-[-7.5%] left-0 right-0 top-0">
                     <img
                       alt={benefit.title}
@@ -70,10 +83,10 @@ export const Innovation = () => {
 
                 {/* Description */}
                 <div className="box-border content-stretch flex flex-col gap-2 items-start justify-start p-0 relative shrink-0 text-[#274348] text-left w-full">
-                  <div className="font-['Epilogue:Bold',_sans-serif] font-bold relative shrink-0 text-lg md:text-[20px] tracking-tight md:tracking-[-0.2px] w-full">
-                    <p className="block leading-normal">{benefit.title}</p>
+                  <div className="font-['Epilogue:Bold',_sans-serif] font-bold relative shrink-0 text-[18px] md:text-[20px] tracking-[-0.18px] md:tracking-[-0.2px] w-full">
+                    <p className="block leading-[1.2] md:leading-normal">{benefit.title}</p>
                   </div>
-                  <div className="font-['DM_Sans:Regular',_sans-serif] font-normal relative shrink-0 text-sm md:text-[14px] w-full">
+                  <div className="font-['DM_Sans:Regular',_sans-serif] font-normal relative shrink-0 text-[14px] md:text-[14px] w-full">
                     <p className="block leading-[1.4]">{benefit.description}</p>
                   </div>
                 </div>
@@ -94,6 +107,9 @@ export const Innovation = () => {
             </div>
           ))}
         </div>
+
+        {/* Background Image - Mobile version */}
+        <div className="md:hidden bg-center bg-contain bg-no-repeat h-[280px] shrink-0 w-full" />
       </div>
     </div>
   );

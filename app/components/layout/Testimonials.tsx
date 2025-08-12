@@ -33,14 +33,14 @@ export const Testimonials = () => {
   ];
 
   return (
-    <div className="box-border content-stretch flex flex-col gap-6 md:gap-10 items-center justify-center pb-0 pt-16 md:pt-32 px-6 md:px-8 relative w-full">
+    <div className="box-border content-stretch flex flex-col gap-6 md:gap-10 items-center justify-center pb-0 pt-16 md:pt-32 px-4 md:px-8 relative w-full">
       <div className="box-border content-stretch flex flex-col gap-12 md:gap-16 items-center justify-center p-0 relative shrink-0 w-full max-w-[1400px]">
         {/* Title Section */}
         <div className="box-border content-stretch flex flex-col gap-6 md:gap-8 items-center justify-start p-0 relative shrink-0 text-[#274348] text-center w-full">
-          <div className="font-['Epilogue:Bold',_sans-serif] font-bold relative shrink-0 text-3xl md:text-[48px] tracking-tight md:tracking-[-0.48px] w-full max-w-[1240px]">
+          <div className="font-['Epilogue:Bold',_sans-serif] font-bold relative shrink-0 text-[32px] md:text-[48px] tracking-[-0.32px] md:tracking-[-0.48px] w-full max-w-[1240px]">
             <p className="block leading-normal">Core Community</p>
           </div>
-          <div className="font-['DM_Sans:Regular',_sans-serif] font-normal relative shrink-0 text-sm md:text-[16px] w-full max-w-[800px]">
+          <div className="font-['DM_Sans:Regular',_sans-serif] font-normal relative shrink-0 text-[14px] md:text-[16px] w-full max-w-[800px]">
             <p className="block leading-[1.5]">
               The HealthyCore community is the heartbeat of our brand. You
               inspire us to keep raising the bar and deliver results that last.
@@ -53,7 +53,7 @@ export const Testimonials = () => {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="basis-0 bg-[#fbfaf7] box-border content-stretch flex flex-col gap-6 md:gap-8 grow items-start justify-center min-h-px min-w-px p-6 md:p-[40px] relative shrink-0 w-full lg:w-auto rounded-lg"
+              className="basis-0 bg-[#fbfaf7] box-border content-stretch flex flex-col gap-5 md:gap-8 grow items-start justify-center min-h-px min-w-px p-[24px] md:p-[40px] relative shrink-0 w-full lg:w-auto rounded-lg"
             >
               {/* Header Row - Stars and Time */}
               <div className="box-border content-stretch flex flex-row items-start justify-between p-0 relative shrink-0 w-full">
@@ -64,7 +64,7 @@ export const Testimonials = () => {
                     src="/images/stars.svg"
                   />
                 </div>
-                <div className="font-['DM_Sans:Regular',_sans-serif] font-normal relative shrink-0 text-[#a4b4ba] text-sm md:text-[14px] text-left text-nowrap">
+                <div className="font-['DM_Sans:Regular',_sans-serif] font-normal relative shrink-0 text-[#a4b4ba] text-[14px] md:text-[14px] text-left text-nowrap">
                   <p className="block leading-[1.1] whitespace-pre">
                     {testimonial.timeAgo}
                   </p>
@@ -73,10 +73,10 @@ export const Testimonials = () => {
 
               {/* Content */}
               <div className="box-border content-stretch flex flex-col gap-2 items-start justify-start p-0 relative shrink-0 text-[#274348] text-left w-full">
-                <div className="font-['DM_Sans:Bold',_sans-serif] font-bold relative shrink-0 text-base md:text-[18px] w-full">
+                <div className="font-['DM_Sans:Bold',_sans-serif] font-bold relative shrink-0 text-[18px] md:text-[18px] w-full">
                   <p className="block leading-[1.5]">{testimonial.title}</p>
                 </div>
-                <div className="font-['DM_Sans:Regular',_sans-serif] font-normal relative shrink-0 text-sm md:text-[16px] w-full">
+                <div className="font-['DM_Sans:Regular',_sans-serif] font-normal relative shrink-0 text-[15px] md:text-[16px] w-full">
                   <p className="block leading-[1.5]">"{testimonial.review}"</p>
                 </div>
               </div>
@@ -87,7 +87,7 @@ export const Testimonials = () => {
                   className="bg-center bg-cover bg-no-repeat rounded-[20px] shrink-0 w-10 h-10"
                   style={{ backgroundImage: `url('${testimonial.photo}')` }}
                 />
-                <div className="font-['DM_Sans:Bold',_sans-serif] font-bold relative shrink-0 text-[#274348] text-sm md:text-[14px] text-left text-nowrap">
+                <div className="font-['DM_Sans:Bold',_sans-serif] font-bold relative shrink-0 text-[#274348] text-[14px] md:text-[14px] text-left text-nowrap">
                   <p className="block leading-[1.1] whitespace-pre">
                     – {testimonial.name}, {testimonial.age}
                   </p>
