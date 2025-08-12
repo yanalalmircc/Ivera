@@ -41,12 +41,14 @@ export const Navbar = () => {
             </p>
           </Link>
         </div>
-        <button
-          className="bg-[#f3f8f9] box-border content-stretch cursor-pointer flex flex-row gap-2.5 items-center justify-center overflow-visible p-0 relative rounded-[40px] shrink-0 w-12 h-12"
-          onClick={handleCartClick}
-        >
-          <Cart />
-        </button>
+        <Link href="/cart">
+          <button
+            className="bg-[#f3f8f9] box-border content-stretch cursor-pointer flex flex-row gap-2.5 items-center justify-center overflow-visible p-0 relative rounded-[40px] shrink-0 w-12 h-12"
+            onClick={handleCartClick}
+          >
+            <Cart />
+          </button>
+        </Link>
       </div>
     </div>
   );
