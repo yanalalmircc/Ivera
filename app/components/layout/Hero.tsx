@@ -5,7 +5,7 @@ export const Hero = () => {
       <div
         className="md:absolute md:bottom-0 md:right-0 md:top-0 w-full md:w-[864px] h-full"
         style={{
-          backgroundImage: `url('/images/hero-bg-1.png'), url('/images/hero-bg-2.png')`,
+          backgroundImage: `url('/images/hero-bg-1.png')`,
           backgroundPosition: "13.01% 0%, 50% 50%",
           backgroundRepeat: "no-repeat",
           backgroundSize: "125.03% 100%, cover",

@@ -25,7 +25,7 @@ export default function AboutUsPage() {
               </div>
             </div>
             <div className="font-['DM_Sans:Regular',_sans-serif] font-normal opacity-50 relative shrink-0 text-[#274348] text-sm md:text-[14px] text-left text-nowrap tracking-tight md:tracking-[-0.14px]">
-              <p className="block leading-[1.2] whitespace-pre">About us</p>
+              <h1 className="text-[32px] text-[#274348] font-bold">About us</h1>
             </div>
           </div>
 
@@ -59,7 +59,9 @@ export default function AboutUsPage() {
           {/* What We Do Section */}
           <div className="box-border content-stretch flex flex-col gap-4 md:gap-6 items-start justify-start p-0 relative shrink-0 text-[#274348] text-left w-full">
             <div className="font-['Epilogue:Bold',_sans-serif] font-bold relative shrink-0 text-2xl md:text-[32px] w-full">
-              <p className="block leading-[1.4]">What We Do</p>
+              <h1 className="text-[32px] text-[#274348] font-bold">
+                What We Do
+              </h1>
             </div>
             <div className="font-['DM_Sans:Regular',_sans-serif] font-normal relative shrink-0 text-base md:text-[18px] w-full">
               <p className="block leading-[1.5]">
@@ -91,50 +93,31 @@ export default function AboutUsPage() {
           </div>
 
           {/* Philosophy and Quality Row */}
-          <div className="box-border content-stretch flex flex-col lg:flex-row gap-8 md:gap-20 items-start justify-start p-0 relative shrink-0 w-full">
-            {/* Our Philosophy */}
-            <div className="basis-0 box-border content-stretch flex flex-col gap-4 md:gap-6 grow items-start justify-start min-h-px min-w-px px-0 py-3 md:py-5 relative shrink-0 text-[#274348] text-left w-full lg:w-auto">
-              <div className="font-['Epilogue:Bold',_sans-serif] font-bold relative shrink-0 text-2xl md:text-[32px] w-full">
-                <p className="block leading-[1.4]">Our Philosophy</p>
-              </div>
-              <div className="font-['DM_Sans:Regular',_sans-serif] font-normal relative shrink-0 text-base md:text-[18px] w-full">
-                <p className="block leading-[1.5]">
-                  We believe that wellness should be accessible, honest, and
-                  empowering. Your body deserves products that work in harmony
-                  with your lifestyle, not against it. That's why everything we
-                  make is created with your long-term health in mind — from
-                  formulation to packaging.
-                </p>
-              </div>
+          <div className="flex flex-col gap-10 items-start md:flex-row">
+            <div className="flex flex-col gap-4 border-b md:border-b-0 md:border-r border-[#D0DFE5] pb-10 md:pb-0 md:pr-10 md:w-1/2">
+              <h1 className="text-[32px] text-[#274348] font-bold">
+                Our Philosophy
+              </h1>
+              <p>
+                We believe that wellness should be accessible, honest, and
+                empowering. Your body deserves products that work in harmony
+                with your lifestyle, not against it. That’s why everything we
+                make is created with your long-term health in mind — from
+                formulation to packaging.
+              </p>
             </div>
-
-            {/* Vertical Separator - Only show on desktop */}
-            <div className="hidden lg:block relative self-stretch shrink-0 w-0">
-              <div className="absolute inset-[-0.18%_-0.5px]">
-                <img
-                  alt="separator"
-                  className="block max-w-none w-full h-full"
-                  src="/images/vertical-separator.svg"
-                />
-              </div>
-            </div>
-
-            {/* Quality You Can Trust */}
-            <div className="basis-0 box-border content-stretch flex flex-col gap-4 md:gap-6 grow items-start justify-start min-h-px min-w-px px-0 py-3 md:py-5 relative shrink-0 text-[#274348] text-left w-full lg:w-auto">
-              <div className="font-['Epilogue:Bold',_sans-serif] font-bold relative shrink-0 text-2xl md:text-[32px] w-full">
-                <p className="block leading-[1.4]">Quality You Can Trust</p>
-              </div>
-              <div className="font-['DM_Sans:Regular',_sans-serif] font-normal relative shrink-0 text-base md:text-[18px] w-full">
-                <p className="block leading-[1.5]">
-                  All HealthyCore supplements are produced in GMP-certified
-                  facilities with rigorous quality control. From our first idea
-                  to the final capsule, every step is rooted in integrity,
-                  innovation, and a deep respect for your health.
-                </p>
-              </div>
+            <div className="flex flex-col gap-4 md:w-1/2">
+              <h1 className="text-[32px] text-[#274348] font-bold">
+                Quality You Can Trust
+              </h1>
+              <p>
+                All HealthyCore supplements are produced in GMP-certified
+                facilities with rigorous quality control. From our first idea to
+                the final capsule, every step is rooted in integrity,
+                innovation, and a deep respect for your health.
+              </p>
             </div>
           </div>
-
           {/* Call to Action Block */}
           <div
             className="bg-[#f5fcfa] bg-center bg-cover bg-no-repeat box-border content-stretch flex flex-row gap-2.5 items-center justify-center p-16 md:p-[128px] relative shrink-0 w-full"

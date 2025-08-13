@@ -49,7 +49,7 @@ export const Testimonials = () => {
         </div>
 
         {/* Testimonials Grid */}
-        <div className="box-border content-stretch flex flex-col lg:flex-row gap-6 md:gap-10 items-center justify-center p-0 relative shrink-0 w-full">
+        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4">
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}

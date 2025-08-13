@@ -25,7 +25,7 @@ export const BestSellers = ({ isHomePage }: { isHomePage?: boolean }) => {
               Our Bestsellers
             </p>
           </div>
-          <div className="hidden md:block basis-0 grow h-0 min-h-px min-w-px relative shrink-0">
+          <div className="hidden md:block lg:basis-0 grow h-0 min-h-px min-w-px relative shrink-0">
             <div className="absolute bottom-[-0.5px] left-0 right-0 top-[-0.5px]">
               <img
                 alt="separator"
@@ -36,7 +36,7 @@ export const BestSellers = ({ isHomePage }: { isHomePage?: boolean }) => {
           </div>
           <Link
             href="/products"
-            className="font-['DM_Sans:Bold',_sans-serif] font-bold relative shrink-0 text-[#274348] text-sm md:text-[16px] text-left text-nowrap tracking-tight md:tracking-[-0.16px] cursor-pointer hover:text-[#19bf98] transition-colors duration-200"
+            className="hidden md:block font-['DM_Sans:Bold',_sans-serif] font-bold relative shrink-0 text-[#274348] text-sm md:text-[16px] text-left text-nowrap tracking-tight md:tracking-[-0.16px] cursor-pointer hover:text-[#19bf98] transition-colors duration-200"
           >
             <p className="block leading-[1.2] whitespace-pre">All Products</p>
           </Link>
@@ -47,17 +47,17 @@ export const BestSellers = ({ isHomePage }: { isHomePage?: boolean }) => {
           {topProducts.map((product: any) => (
             <div
               key={product.id}
-              className="basis-0 box-border content-stretch flex flex-col lg:flex-row grow items-start justify-start min-h-px min-w-px p-0 relative self-stretch shrink-0 w-full lg:w-auto"
+              className="lg:basis-0 box-border content-stretch flex flex-row grow items-start justify-start min-h-px min-w-px p-0 relative self-stretch shrink-0 w-full lg:w-auto"
             >
               {/* Product Image */}
               <Link
                 href={`/products/${product.id}`}
-                className="bg-[#fbfaf7] bg-center bg-cover bg-no-repeat shrink-0 w-full lg:w-80 h-64 lg:h-80 cursor-pointer hover:opacity-90 transition-opacity duration-200"
+                className="bg-[#fbfaf7] bg-center bg-cover bg-no-repeat shrink-0 w-1/2 h-64 lg:h-80 cursor-pointer hover:opacity-90 transition-opacity duration-200"
                 style={{ backgroundImage: `url('${product.image}')` }}
               />
 
               {/* Product Description */}
-              <div className="basis-0 box-border content-stretch flex flex-col grow h-full items-start justify-between min-h-px min-w-px p-6 md:p-[40px] relative shrink-0 w-full">
+              <div className="lg:basis-0 box-border content-stretch flex flex-col grow h-full items-start justify-between min-h-px min-w-px p-6 md:p-[40px] relative shrink-0 w-1/2">
                 <div className="box-border content-stretch flex flex-col gap-2 items-start justify-start p-0 relative shrink-0 w-full">
                   {/* Product Name */}
                   <Link
@@ -129,7 +129,7 @@ export const BestSellers = ({ isHomePage }: { isHomePage?: boolean }) => {
         {/* Mobile "All Products" Link - Only show on mobile for home page */}
         {isHomePage && (
           <div className="box-border content-stretch flex flex-row gap-5 items-center justify-start p-0 relative shrink-0 w-full md:hidden">
-            <div className="basis-0 grow h-0 min-h-px min-w-px relative shrink-0">
+            <div className="lg:basis-0 grow h-0 min-h-px min-w-px relative shrink-0">
               <div className="absolute bottom-[-0.5px] left-0 right-0 top-[-0.5px]">
                 <img
                   alt="separator"

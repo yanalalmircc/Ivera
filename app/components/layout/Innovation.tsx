@@ -24,92 +24,91 @@ export const Innovation = () => {
   ];
 
   return (
-    <div className="box-border content-stretch flex flex-col gap-6 md:gap-10 items-center justify-center px-6 md:px-10 py-0 relative w-full">
+    <div className="w-full">
       <div
-        className="bg-[#f5fcfa] bg-right bg-no-repeat box-border content-stretch flex flex-col gap-16 md:gap-28 items-center justify-center px-8 md:px-16 py-16 md:py-28 relative shrink-0 w-full max-w-[1400px] rounded-lg md:rounded-none"
+        className="w-full bg-[#F5FCFA] p-10 pb-0 gap-[24px] flex flex-col md:px-16 md:py-28 md:gap-28 md:items-center md:justify-center"
         style={{
-          backgroundImage: `url('/images/innovation-bg.png')`,
-          backgroundSize: "50% 100%, auto",
-          backgroundPosition: "135% 0%",
+          backgroundImage: 'url("/images/innovation-bg.png")',
+          backgroundSize: "45% 94.59%, auto",
           backgroundRepeat: "no-repeat",
+          backgroundPosition: "right center",
         }}
       >
-        {/* Title Section */}
-        <div className="box-border content-stretch flex flex-col gap-6 md:gap-8 items-center justify-start p-0 relative shrink-0 text-[#274348] text-center w-full">
-          <div className="font-['Epilogue:Bold',_sans-serif] font-bold relative shrink-0 text-[32px] md:text-[48px] tracking-[-0.32px] md:tracking-[-0.48px] w-full max-w-[1240px]">
-            <p className="block leading-normal">Built on Innovation</p>
-          </div>
-          <div className="font-['DM_Sans:Regular',_sans-serif] font-normal relative shrink-0 text-[14px] md:text-[16px] w-full max-w-[720px]">
-            <p className="block leading-[1.5]">
-              Our top-rated weight loss supplements are trusted by thousands to
-              control cravings, support metabolism, and boost daily
-              energy—without the crash or the guesswork.
-            </p>
-          </div>
+        {/* Text */}
+        <div className="flex flex-col gap-[20px] md:gap-8 justify-center items-center text-center md:w-[1240px]">
+          <h1 className="text-[32px] md:text-[48px] text-[#274348] font-bold md:tracking-[-0.48px] md:leading-[normal]">
+            Built on Innovation
+          </h1>
+          <p className="text-[#274348] text-center text-[14px] md:text-[16px] md:leading-[1.5] md:w-[720px]">
+            Our top-rated weight loss supplements are trusted by thousands to
+            control cravings, support metabolism, and boost daily energy—without
+            the crash or the guesswork.
+          </p>
         </div>
 
-        {/* Benefits Section */}
-        <div className="box-border content-stretch flex flex-col lg:flex-row gap-8 md:gap-16 items-start justify-start p-0 pl-0 pr-0 md:pr-[280px] py-0 relative shrink-0 w-full max-w-[1240px]">
+        {/* Benefits Cards */}
+        <div className="flex flex-col md:flex-row gap-6 md:gap-16 items-center md:justify-center md:w-[1240px] md:pl-0 md:pr-[280px] w-full mt-6">
           {benefits.map((benefit, index) => (
             <div
               key={benefit.id}
-              className="flex flex-col lg:flex-row items-start gap-6 md:gap-8 w-full lg:w-auto"
+              className="h-full md:basis-0 md:grow md:px-0 md:py-5"
             >
-              {/* Separator - Only show on mobile between items */}
+              {/* Separator line (except for first item) */}
               {index > 0 && (
-                <div className="lg:hidden h-0 relative shrink-0 w-full">
-                  <div className="absolute bottom-[-0.5px] left-0 right-0 top-[-0.5px]">
-                    <img
-                      alt="separator"
-                      className="block max-w-none w-full h-full"
-                      src="/images/separator-vertical.svg"
-                    />
+                <>
+                  {/* Mobile separator */}
+                  <div className="h-0 relative shrink-0 w-full mb-6 md:hidden">
+                    <div className="absolute bottom-[-0.5px] left-0 right-0 top-[-0.5px]">
+                      <img
+                        src="/images/separator-line.svg"
+                        alt=""
+                        className="w-full h-full"
+                      />
+                    </div>
                   </div>
-                </div>
+
+                  {/* Desktop separator */}
+                  <div className="hidden md:block relative self-stretch shrink-0 w-0">
+                    <div className="absolute bottom-0 left-[-0.5px] right-[-0.5px] top-0">
+                      <img
+                        src="/images/separator-vertical.svg"
+                        alt=""
+                        className="w-full h-full"
+                      />
+                    </div>
+                  </div>
+                </>
               )}
 
-              {/* Benefit Item */}
-              <div className="basis-0 box-border content-stretch flex flex-col gap-6 md:gap-8 grow items-start justify-start min-h-px min-w-px px-0 py-3 md:py-5 relative shrink-0 w-full lg:w-auto">
+              {/* Benefit Card */}
+              <div className="flex md:flex-col flex-row gap-5 md:gap-8 items-center md:items-start justify-start w-full">
                 {/* Icon */}
-                <div className="h-[70px] md:h-20 relative shrink-0 w-[69px] md:w-[79px]">
-                  <div className="absolute bottom-[-7.5%] left-0 right-0 top-0">
-                    <img
-                      alt={benefit.title}
-                      className="block max-w-none w-full h-full"
-                      src={benefit.icon}
-                    />
-                  </div>
+                <div className="h-[70px] w-[69px] md:h-20 md:w-[79px] relative shrink-0 flex items-center justify-center">
+                  <img
+                    src={benefit.icon}
+                    alt={benefit.title}
+                    className="max-w-none w-full h-full object-contain"
+                  />
                 </div>
 
                 {/* Description */}
-                <div className="box-border content-stretch flex flex-col gap-2 items-start justify-start p-0 relative shrink-0 text-[#274348] text-left w-full">
-                  <div className="font-['Epilogue:Bold',_sans-serif] font-bold relative shrink-0 text-[18px] md:text-[20px] tracking-[-0.18px] md:tracking-[-0.2px] w-full">
-                    <p className="block leading-[1.2] md:leading-normal">{benefit.title}</p>
-                  </div>
-                  <div className="font-['DM_Sans:Regular',_sans-serif] font-normal relative shrink-0 text-[14px] md:text-[14px] w-full">
-                    <p className="block leading-[1.4]">{benefit.description}</p>
-                  </div>
+                <div className="flex flex-col gap-2 grow items-start justify-start text-[#274348] text-left w-full">
+                  <h3 className="font-['Epilogue:Bold',_sans-serif] font-bold text-[18px] md:text-[20px] tracking-[-0.18px] md:tracking-[-0.2px] leading-[1.2] md:leading-[normal] w-full">
+                    {benefit.title}
+                  </h3>
+                  <p className="font-['DM_Sans:Regular',_sans-serif] font-normal text-[14px] leading-[1.4] w-full">
+                    {benefit.description}
+                  </p>
                 </div>
               </div>
-
-              {/* Separator - Only show between items on desktop */}
-              {index < benefits.length - 1 && (
-                <div className="hidden lg:block relative self-stretch shrink-0 w-0">
-                  <div className="absolute bottom-0 left-[-0.5px] right-[-0.5px] top-0">
-                    <img
-                      alt="separator"
-                      className="block max-w-none w-full h-full"
-                      src="/images/separator-vertical.svg"
-                    />
-                  </div>
-                </div>
-              )}
             </div>
           ))}
         </div>
 
-        {/* Background Image - Mobile version */}
-        <div className="md:hidden bg-center bg-contain bg-no-repeat h-[280px] shrink-0 w-full" />
+        {/* Image - only show on mobile */}
+        <div className="w-full h-full bg-center bg-cover bg-no-repeat md:hidden">
+          <img src="/images/innovation-bg.png" alt="Innovation" />
+        </div>
       </div>
     </div>
   );
