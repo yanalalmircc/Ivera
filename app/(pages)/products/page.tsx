@@ -2,7 +2,7 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import { products } from "@lib/data";
-import { ChevronRight, Plus, ChevronLeft } from "@icons";
+import { ChevronRight, Plus } from "@icons";
 
 type SortOption = "price-low-high" | "price-high-low" | "name-a-z" | "name-z-a";
 
@@ -54,41 +54,39 @@ export default function ProductsPage() {
   };
 
   return (
-    <div className="bg-[#ffffff] box-border content-stretch flex flex-col items-start justify-start p-0 relative w-full">
+    <div className="bg-white w-full">
       {/* Content Section */}
-      <div className="box-border content-stretch flex flex-col gap-6 md:gap-10 items-center justify-center pb-16 md:pb-24 pt-8 md:pt-12 px-6 md:px-10 relative shrink-0 w-full">
-        <div className="box-border content-stretch flex flex-col gap-8 md:gap-12 items-start justify-center p-0 relative shrink-0 w-full max-w-[1400px]">
+      <div className="flex flex-col gap-8 md:gap-10 items-center pb-8 md:pb-24 pt-5 md:pt-12 px-5 md:px-10 w-full">
+        <div className="flex flex-col gap-8 md:gap-12 items-start justify-center w-full max-w-[1400px]">
           {/* Breadcrumbs */}
-          <div className="box-border content-stretch flex flex-row gap-2 items-center justify-start pb-5 pt-0 px-0 relative shrink-0 w-full">
+          <div className="flex flex-row gap-2 items-center justify-start w-full">
             <Link
               href="/"
-              className="font-['DM_Sans:Regular',_sans-serif] font-normal relative shrink-0 text-[#274348] text-sm md:text-[14px] text-left text-nowrap tracking-tight md:tracking-[-0.14px] hover:text-[#19bf98] transition-colors duration-200"
+              className="font-['DM_Sans:Regular',_sans-serif] font-normal text-[#274348] text-[14px] text-left tracking-[-0.14px] hover:text-[#19bf98] transition-colors duration-200"
             >
-              <p className="block leading-[1.2] whitespace-pre">Home</p>
+              Home
             </Link>
-            <div className="opacity-50 overflow-clip relative shrink-0 w-4 h-4">
-              <div className="absolute inset-[26.22%_33.69%_26.22%_36.64%]">
-                <ChevronRight />
-              </div>
+            <div className="opacity-50 w-4 h-4">
+              <ChevronRight />
             </div>
-            <div className="font-['DM_Sans:Regular',_sans-serif] font-normal opacity-50 relative shrink-0 text-[#274348] text-sm md:text-[14px] text-left text-nowrap tracking-tight md:tracking-[-0.14px]">
-              <p className="block leading-[1.2] whitespace-pre">Products</p>
+            <div className="font-['DM_Sans:Regular',_sans-serif] font-normal opacity-50 text-[#274348] text-[14px] text-left tracking-[-0.14px]">
+              Products
             </div>
           </div>
 
           {/* Title and Sort Section */}
-          <div className="box-border content-stretch flex flex-col md:flex-row gap-4 md:gap-5 items-start md:items-center justify-between pb-10 pt-0 px-0 relative shrink-0 w-full border-b border-[#d0dfe5] border-solid">
-            <div className="font-['Epilogue:Bold',_sans-serif] font-bold relative shrink-0 text-[#274348] text-3xl md:text-[48px] text-left tracking-tight md:tracking-[-0.48px] w-full md:w-auto">
-              <p className="block leading-[1.2]">Our products</p>
+          <div className="flex flex-col md:flex-row gap-5 md:gap-5 items-start md:items-center justify-center md:justify-between pb-5 w-full border-b border-[#d0dfe5] border-solid">
+            <div className="font-['Epilogue:Bold',_sans-serif] font-bold text-[#274348] text-[32px] md:text-[48px] text-left tracking-[-0.32px] md:tracking-[-0.48px] w-full md:w-auto">
+              Our products
             </div>
 
             {/* Sort Dropdown */}
-            <div className="box-border content-stretch flex flex-col gap-2 items-start justify-start p-0 relative shrink-0 w-full md:w-[220px]">
-              <div className="bg-[#ffffff] box-border content-stretch flex flex-row gap-2 items-center justify-start p-[10px] relative shrink-0 w-full border border-[#d0dfe5] border-solid focus-within:border-[#19bf98] transition-colors duration-200">
+            <div className="flex flex-col gap-2 items-start justify-start w-full md:w-[220px]">
+              <div className="bg-white flex flex-row gap-2 items-center justify-start p-[10px] w-full border border-[#d0dfe5] border-solid focus-within:border-[#19bf98] transition-colors duration-200">
                 <select
                   value={sortBy}
                   onChange={handleSortChange}
-                  className="basis-0 box-border content-stretch flex flex-row gap-2 grow h-6 items-center justify-start min-h-px min-w-px px-0 py-[0.5px] relative shrink-0 text-[#274348] text-sm md:text-[14px] text-left tracking-tight md:tracking-[-0.14px] bg-transparent border-none outline-none cursor-pointer"
+                  className="grow h-6 text-[#274348] text-[14px] text-left tracking-[-0.14px] bg-transparent border-none outline-none cursor-pointer"
                 >
                   <option value="price-low-high">
                     Sort by price: low to high
@@ -104,69 +102,58 @@ export default function ProductsPage() {
           </div>
 
           {/* Products Grid */}
-          <div className="flex flex-wrap gap-8 md:gap-12 items-start justify-start w-full">
+          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-12 items-start justify-start w-full">
             {currentProducts.map((product) => (
               <div
                 key={product.id}
-                className="box-border content-stretch flex flex-col lg:flex-row items-start justify-start p-0 relative shrink-0 w-full lg:w-[675px]"
+                className="flex flex-row gap-4 md:gap-0 items-start justify-start w-full relative"
               >
                 {/* Product Image */}
                 <Link
                   href={`/products/${product.id}`}
-                  className="bg-[#fbfaf7] bg-center bg-cover bg-no-repeat shrink-0 w-full lg:w-80 h-64 lg:h-80 cursor-pointer hover:opacity-90 transition-opacity duration-200"
+                  className="aspect-square md:size-80 bg-[#fbfaf7] bg-center bg-cover bg-no-repeat w-full max-w-[120px] md:max-w-none md:shrink-0 cursor-pointer hover:opacity-90 transition-opacity duration-200"
                   style={{ backgroundImage: `url('${product.image}')` }}
                 />
 
                 {/* Product Description */}
-                <div className="basis-0 bg-[#ffffff] box-border content-stretch flex flex-col grow items-start justify-between min-h-px min-w-px p-6 md:p-[40px] relative self-stretch shrink-0 w-full">
-                  <div className="box-border content-stretch flex flex-col gap-1 md:gap-2 items-start justify-start p-0 relative shrink-0 w-full">
+                <div className="flex flex-col gap-4 md:gap-auto md:grow items-start justify-start md:justify-between w-full p-[40px] md:h-[320px]">
+                  <div className="flex flex-col gap-3 md:gap-2 items-start justify-start w-full ">
                     {/* Product Name */}
                     <Link
                       href={`/products/${product.id}`}
-                      className="font-['DM_Sans:Bold',_sans-serif] font-bold min-w-full relative shrink-0 text-[#274348] text-xl md:text-[24px] text-left tracking-tight md:tracking-[-0.24px] w-full cursor-pointer hover:text-[#19bf98] transition-colors duration-200"
+                      className="font-['DM_Sans:Bold',_sans-serif] font-bold text-[#274348] text-[18px] md:text-[24px] text-left tracking-[-0.18px] md:tracking-[-0.24px] w-full cursor-pointer hover:text-[#19bf98] transition-colors duration-200"
                     >
-                      <p className="block leading-[1.5]">{product.name}</p>
+                      {product.name}
                     </Link>
 
                     {/* Product Category */}
-                    <div className="font-['DM_Sans:Regular',_sans-serif] font-normal relative shrink-0 text-[#a4b4ba] text-sm md:text-[16px] text-left">
-                      <p className="block leading-[1.2]">{product.category}</p>
+                    <div className="font-['DM_Sans:Regular',_sans-serif] font-normal text-[#a4b4ba] text-[14px] md:text-[16px] text-left">
+                      {product.category}
                     </div>
 
                     {/* Price Section */}
-                    <div className="box-border content-stretch flex flex-row gap-2 md:gap-3 items-center justify-center p-0 relative shrink-0">
-                      <div className="font-['DM_Sans:Bold',_sans-serif] font-bold relative shrink-0 text-[#19bf98] text-lg md:text-[24px] text-left text-nowrap tracking-tight md:tracking-[-0.24px]">
-                        <p className="block leading-[1.5] whitespace-pre">
-                          ${product.price}
-                        </p>
-                      </div>
+                    <div className="flex flex-col md:flex-row items-start md:items-center justify-center gap-2 md:gap-3">
                       {product.oldPrice && (
-                        <div className="box-border content-stretch flex flex-row gap-1 items-center justify-start p-0 relative shrink-0">
-                          <div className="font-['DM_Sans:Regular',_sans-serif] font-normal relative shrink-0 text-[#a4b4ba] text-sm md:text-[16px] text-left text-nowrap tracking-tight md:tracking-[-0.16px]">
-                            <p className="[text-decoration-line:line-through] [text-decoration-skip-ink:none] [text-decoration-style:solid] [text-underline-position:from-font] block leading-[1.5] whitespace-pre">
-                              ${product.oldPrice}
-                            </p>
+                        <div className="flex flex-row gap-1 items-center justify-start">
+                          <div className="font-['DM_Sans:Regular',_sans-serif] font-normal text-[#a4b4ba] text-[14px] md:text-[16px] text-left tracking-[-0.14px] md:tracking-[-0.16px] line-through">
+                            ${product.oldPrice}
                           </div>
                         </div>
                       )}
+                      <div className="font-['DM_Sans:Bold',_sans-serif] font-bold text-[#19bf98] text-[18px] md:text-[24px] text-left tracking-[-0.18px] md:tracking-[-0.24px]">
+                        ${product.price}
+                      </div>
                     </div>
                   </div>
 
-                  {/* Add to Cart Button */}
-                  <div
-                    className="bg-[#ffffff] box-border content-stretch flex flex-row gap-2 items-center justify-center pl-4 pr-5 py-3 relative rounded-[999px] shrink-0 cursor-pointer text-[#274348] hover:bg-[#274348] hover:text-white transition-all duration-200 border border-[#274348] border-solid"
-                    onClick={() => handleAddToCart(product.id)}
-                  >
-                    <div className="overflow-clip relative shrink-0 w-6 h-6">
-                      <div className="flex items-center justify-center">
-                        <Plus />
-                      </div>
+                  {/* Add to Cart Button - Desktop Only */}
+                  <div className="hidden md:flex flex-row gap-2 items-center justify-center pl-4 pr-5 py-3 rounded-[999px] cursor-pointer text-[#274348] hover:bg-[#274348] hover:text-white transition-all duration-200 border border-[#274348] border-solid">
+                    <div className="w-6 h-6">
+                      <Plus />
                     </div>
-                    <div className="box-border content-stretch flex flex-row gap-2 h-6 items-center justify-center px-0 py-[0.5px] relative shrink-0">
-                      <div className="flex flex-col font-['DM_Sans:Bold',_sans-serif] font-bold justify-center relative shrink-0  text-sm md:text-[14px] text-left text-nowrap tracking-tight md:tracking-[-0.14px] uppercase group-hover:text-white transition-colors duration-200">
-                        <p className="block leading-[1.2] whitespace-pre">
-                          Add to cart
-                        </p>
+                    <div className="flex flex-row gap-2 h-6 items-center justify-center">
+                      <div className="flex flex-col font-['DM_Sans:Bold',_sans-serif] font-bold justify-center text-[#274348] text-[12px] text-left tracking-[-0.14px] uppercase">
+                        Add to cart
                       </div>
                     </div>
                   </div>
@@ -174,16 +161,14 @@ export default function ProductsPage() {
 
                 {/* Discount Badge - Only show for products with oldPrice */}
                 {product.oldPrice && (
-                  <div className="absolute bg-[#d44646] box-border content-stretch flex flex-row gap-2.5 items-center justify-center left-5 px-3 py-2 rounded-2xl top-5">
-                    <div className="font-['DM_Sans:Bold',_sans-serif] font-bold relative shrink-0 text-[#ffffff] text-xs md:text-[12px] text-left text-nowrap tracking-tight md:tracking-[-0.12px]">
-                      <p className="block leading-none whitespace-pre">
-                        {Math.round(
-                          ((product.oldPrice - product.price) /
-                            product.oldPrice) *
-                            100
-                        )}
-                        % OFF
-                      </p>
+                  <div className="absolute bg-[#d44646] flex flex-row gap-2.5 items-center justify-center left-2.5 md:left-5 px-3 py-2 rounded-2xl top-2.5 md:top-5">
+                    <div className="font-['DM_Sans:Bold',_sans-serif] font-bold text-white text-[11px] md:text-[12px] text-left tracking-[-0.11px] md:tracking-[-0.12px]">
+                      {Math.round(
+                        ((product.oldPrice - product.price) /
+                          product.oldPrice) *
+                          100
+                      )}
+                      % OFF
                     </div>
                   </div>
                 )}
@@ -192,26 +177,24 @@ export default function ProductsPage() {
           </div>
 
           {/* Pagination Section */}
-          <div className="box-border content-stretch flex flex-col md:flex-row gap-4 md:gap-2.5 items-center justify-between px-0 py-10 relative shrink-0 w-full border-t border-[#d0dfe5] border-solid">
+          <div className="flex flex-col gap-6 items-center justify-center pt-6 w-full border-t border-[#d0dfe5] border-solid">
             {/* Results Count */}
-            <div className="font-['DM_Sans:Regular',_sans-serif] font-normal relative shrink-0 text-[#274348] text-sm md:text-[16px] text-left tracking-tight md:tracking-[-0.16px] w-full md:w-auto text-center md:text-left">
-              <p className="block leading-[1.2]">
-                Showing {startIndex + 1}–
-                {Math.min(endIndex, sortedProducts.length)} of{" "}
-                {sortedProducts.length} results
-              </p>
+            <div className="font-['DM_Sans:Regular',_sans-serif] font-normal text-[#274348] text-[16px] text-center tracking-[-0.16px] w-full">
+              Showing {startIndex + 1}–
+              {Math.min(endIndex, sortedProducts.length)} of{" "}
+              {sortedProducts.length} results
             </div>
 
             {/* Pagination Controls */}
-            <div className="box-border content-stretch flex flex-row gap-2 md:gap-3 items-center justify-center p-0 relative shrink-0">
+            <div className="flex flex-row gap-3 items-center justify-center">
               {/* Previous Page Button */}
               {currentPage > 1 && (
                 <button
                   onClick={() => handlePageChange(currentPage - 1)}
-                  className="bg-[#f5fcfa] box-border content-stretch flex flex-row gap-2.5 items-center justify-center p-0 relative shrink-0 w-10 h-10 hover:bg-[#19bf98] hover:text-white transition-all duration-200 cursor-pointer"
+                  className="bg-[#f5fcfa] flex flex-row gap-2.5 items-center justify-center w-10 h-10 hover:bg-[#19bf98] hover:text-white transition-all duration-200 cursor-pointer"
                 >
-                  <div className="overflow-clip relative shrink-0 w-6 h-6 rotate-180">
-                    <ChevronLeft />
+                  <div className="w-6 h-6 rotate-180">
+                    <ChevronRight />
                   </div>
                 </button>
               )}
@@ -232,14 +215,14 @@ export default function ProductsPage() {
                     <button
                       key={pageNumber}
                       onClick={() => handlePageChange(pageNumber)}
-                      className={`box-border content-stretch flex flex-row gap-2.5 items-center justify-center p-0 relative shrink-0 w-10 h-10 cursor-pointer transition-all duration-200 ${
+                      className={`flex flex-row gap-2.5 items-center justify-center w-10 h-10 cursor-pointer transition-all duration-200 ${
                         isCurrentPage
                           ? "bg-[#19bf98] text-white"
                           : "bg-[#f5fcfa] text-[#274348] hover:bg-[#19bf98] hover:text-white"
                       }`}
                     >
-                      <div className="font-['DM_Sans:Regular',_sans-serif] font-normal relative shrink-0 text-sm md:text-[16px] text-center tracking-tight md:tracking-[-0.16px]">
-                        <p className="block leading-[1.2]">{pageNumber}</p>
+                      <div className="font-['DM_Sans:Regular',_sans-serif] font-normal text-[16px] text-center tracking-[-0.16px]">
+                        {pageNumber}
                       </div>
                     </button>
                   );
@@ -250,7 +233,7 @@ export default function ProductsPage() {
                   return (
                     <span
                       key={pageNumber}
-                      className="font-['DM_Sans:Regular',_sans-serif] font-normal relative shrink-0 text-[#274348] text-sm md:text-[16px] text-center tracking-tight md:tracking-[-0.16px] px-2"
+                      className="font-['DM_Sans:Regular',_sans-serif] font-normal text-[#274348] text-[16px] text-center tracking-[-0.16px] px-2"
                     >
                       ...
                     </span>
@@ -263,9 +246,9 @@ export default function ProductsPage() {
               {currentPage < totalPages && (
                 <button
                   onClick={() => handlePageChange(currentPage + 1)}
-                  className="bg-[#f5fcfa] box-border content-stretch flex flex-row gap-2.5 items-center justify-center p-0 relative shrink-0 w-10 h-10 hover:bg-[#19bf98] hover:text-white transition-all duration-200 cursor-pointer"
+                  className="bg-[#f5fcfa] flex flex-row gap-2.5 items-center justify-center w-10 h-10 hover:bg-[#19bf98] hover:text-white transition-all duration-200 cursor-pointer"
                 >
-                  <div className="overflow-clip relative shrink-0 w-6 h-6">
+                  <div className="w-6 h-6">
                     <ChevronRight />
                   </div>
                 </button>
