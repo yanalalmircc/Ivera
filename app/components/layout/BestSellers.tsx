@@ -89,29 +89,29 @@ export const BestSellers = ({ isHomePage }: { isHomePage?: boolean }) => {
                 </div>
 
                 {/* Add to Cart Button - Hidden on mobile for home page */}
-                {!isHomePage && (
-                  <div
-                    className="box-border content-stretch flex flex-row gap-2 items-center justify-center pl-4 pr-5 py-3 relative rounded-[999px] shrink-0 cursor-pointer text-[#274348] hover:bg-[#274348] hover:text-white transition-all duration-200 border border-[#274348] border-solid bg-white"
-                    onClick={() => handleAddToCart(product.id)}
-                  >
-                    <div className="overflow-clip relative shrink-0 w-6 h-6">
-                      <div className="absolute inset-[16.667%]">
-                        <img
-                          alt="plus icon"
-                          className="block max-w-none w-full h-full"
-                          src="/images/plus-icon.svg"
-                        />
-                      </div>
-                    </div>
-                    <div className="box-border content-stretch flex flex-row gap-2 h-6 items-center justify-center px-0 py-[0.5px] relative shrink-0">
-                      <div className="flex flex-col font-['DM_Sans:Bold',_sans-serif] font-bold justify-center relative shrink-0 text-sm md:text-[14px] text-left text-nowrap tracking-tight md:tracking-[-0.14px] uppercase">
-                        <p className="block leading-[1.2] whitespace-pre">
-                          Add to cart
-                        </p>
-                      </div>
+                <div
+                  className={`box-border content-stretch flex flex-row gap-2 items-center justify-center pl-4 pr-5 py-3 relative rounded-[999px] shrink-0 cursor-pointer text-[#274348] hover:bg-[#274348] hover:text-white transition-all duration-200 border border-[#274348] border-solid bg-white ${
+                    isHomePage ? "hidden md:flex" : "flex"
+                  }`}
+                  onClick={() => handleAddToCart(product.id)}
+                >
+                  <div className="overflow-clip relative shrink-0 w-6 h-6">
+                    <div className="absolute inset-[16.667%]">
+                      <img
+                        alt="plus icon"
+                        className="block max-w-none w-full h-full"
+                        src="/images/plus-icon.svg"
+                      />
                     </div>
                   </div>
-                )}
+                  <div className="box-border content-stretch flex flex-row gap-2 h-6 items-center justify-center px-0 py-[0.5px] relative shrink-0">
+                    <div className="flex flex-col font-['DM_Sans:Bold',_sans-serif] font-bold justify-center relative shrink-0 text-sm md:text-[14px] text-left text-nowrap tracking-tight md:tracking-[-0.14px] uppercase">
+                      <p className="block leading-[1.2] whitespace-pre">
+                        Add to cart
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Discount Badge - Only show for products with oldPrice */}
