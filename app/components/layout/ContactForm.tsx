@@ -3,12 +3,13 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useState } from "react";
+import { ArrowRight } from "@icons";
 
 const contactFormSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
   lastName: z.string().min(1, "Last name is required"),
   orderId: z.string().optional(),
-  subject: z.string().min(1, "Subject is required"),
+  subject: z.string().min(1, "Please select a subject"),
   message: z.string().min(10, "Message must be at least 10 characters"),
 });
 
@@ -40,163 +41,158 @@ export const ContactForm = () => {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-    
+
     // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
     console.log("Form submitted:", data);
     setShowSuccess(true);
     reset();
-    
+
     // Hide success message after 3 seconds
     setTimeout(() => setShowSuccess(false), 3000);
     setIsSubmitting(false);
   };
 
   return (
-    <div className="bg-neutral-50 box-border content-stretch flex flex-col lg:flex-row gap-6 lg:gap-10 items-start justify-center p-8 md:p-[48px] relative shrink-0 w-full rounded-lg">
-      {/* Left Column - Form Fields */}
-      <div className="basis-0 box-border content-stretch flex flex-col gap-4 md:gap-5 grow items-start justify-start min-h-px min-w-px p-0 relative shrink-0 w-full lg:w-auto">
-        
-        {/* First Name Field */}
-        <div className="box-border content-stretch flex flex-col gap-2 items-start justify-start p-0 relative shrink-0 w-full">
-          <label className="flex flex-col font-['DM_Sans:Regular',_sans-serif] font-normal justify-center relative shrink-0 text-[#274348] text-sm md:text-[14px] text-left tracking-tight md:tracking-[-0.14px] w-full">
-            First name
-          </label>
-          <div className="bg-[#ffffff] box-border content-stretch flex flex-row gap-3 items-center justify-start p-4 relative shrink-0 w-full border border-[#d0dfe5] border-solid focus-within:border-[#19bf98] transition-colors duration-200">
-            <input
-              type="text"
-              placeholder="Your first name"
-              className="basis-0 box-border content-stretch flex flex-row gap-2 grow h-6 items-center justify-start min-h-px min-w-px px-0 py-[0.5px] relative shrink-0 text-[#274348] text-base md:text-[20px] text-left tracking-tight md:tracking-[-0.2px] bg-transparent border-none outline-none placeholder:text-[#a4b4ba]"
-              {...register("firstName")}
-            />
-          </div>
-          {errors.firstName && (
-            <span className="text-red-500 text-sm">{errors.firstName.message}</span>
-          )}
-        </div>
-
-        {/* Last Name Field */}
-        <div className="box-border content-stretch flex flex-col gap-2 items-start justify-start p-0 relative shrink-0 w-full">
-          <label className="flex flex-col font-['DM_Sans:Regular',_sans-serif] font-normal justify-center relative shrink-0 text-[#274348] text-sm md:text-[14px] text-left tracking-tight md:tracking-[-0.14px] w-full">
-            Last name
-          </label>
-          <div className="bg-[#ffffff] box-border content-stretch flex flex-row gap-3 items-center justify-start p-4 relative shrink-0 w-full border border-[#d0dfe5] border-solid focus-within:border-[#19bf98] transition-colors duration-200">
-            <input
-              type="text"
-              placeholder="Your last name"
-              className="basis-0 box-border content-stretch flex flex-row gap-2 grow h-6 items-center justify-start min-h-px min-w-px px-0 py-[0.5px] relative shrink-0 text-[#274348] text-base md:text-[20px] text-left tracking-tight md:tracking-[-0.2px] bg-transparent border-none outline-none placeholder:text-[#a4b4ba]"
-              {...register("lastName")}
-            />
-          </div>
-          {errors.lastName && (
-            <span className="text-red-500 text-sm">{errors.lastName.message}</span>
-          )}
-        </div>
-
-        {/* Order ID Field */}
-        <div className="box-border content-stretch flex flex-col gap-2 items-start justify-start p-0 relative shrink-0 w-full">
-          <label className="flex flex-col font-['DM_Sans:Regular',_sans-serif] font-normal justify-center relative shrink-0 text-[#274348] text-sm md:text-[14px] text-left tracking-tight md:tracking-[-0.14px] w-full">
-            Order ID <span className="text-[#a4b4ba]">(Optional)</span>
-          </label>
-          <div className="bg-[#ffffff] box-border content-stretch flex flex-row gap-3 items-center justify-start p-4 relative shrink-0 w-full border border-[#d0dfe5] border-solid focus-within:border-[#19bf98] transition-colors duration-200">
-            <input
-              type="text"
-              placeholder="Your order ID"
-              className="basis-0 box-border content-stretch flex flex-row gap-2 grow h-6 items-center justify-start min-h-px min-w-px px-0 py-[0.5px] relative shrink-0 text-[#274348] text-base md:text-[20px] text-left tracking-tight md:tracking-[-0.2px] bg-transparent border-none outline-none placeholder:text-[#a4b4ba]"
-              {...register("orderId")}
-            />
-          </div>
-        </div>
-
-        {/* Subject Field */}
-        <div className="box-border content-stretch flex flex-col gap-2 items-start justify-start p-0 relative shrink-0 w-full">
-          <label className="flex flex-col font-['DM_Sans:Regular',_sans-serif] font-normal justify-center relative shrink-0 text-[#274348] text-sm md:text-[14px] text-left tracking-tight md:tracking-[-0.14px] w-full">
-            Subject
-          </label>
-          <div className="bg-[#ffffff] box-border content-stretch flex flex-row gap-3 items-center justify-start p-4 relative shrink-0 w-full border border-[#d0dfe5] border-solid focus-within:border-[#19bf98] transition-colors duration-200">
-            <select
-              className="basis-0 box-border content-stretch flex flex-row gap-2 grow h-6 items-center justify-start min-h-px min-w-px px-0 py-[0.5px] relative shrink-0 text-[#274348] text-base md:text-[20px] text-left tracking-tight md:tracking-[-0.2px] bg-transparent border-none outline-none cursor-pointer"
-              {...register("subject")}
-            >
-              <option value="" className="text-[#a4b4ba]">Select a subject</option>
-              {subjectOptions.map((option) => (
-                <option key={option} value={option} className="text-[#274348]">
-                  {option}
-                </option>
-              ))}
-            </select>
-            <div className="overflow-clip relative shrink-0 w-6 h-6">
-              <div className="absolute inset-[37.49%_26.7%_35.07%_26.74%]">
-                <img
-                  alt="chevron down"
-                  className="block max-w-none w-full h-full"
-                  src="/images/chevron-down.svg"
-                />
-              </div>
+    <form onSubmit={handleSubmit(onSubmit)} className="w-full">
+      <div className="bg-gray-50 p-8 md:p-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+          {/* Left Column - Form Fields */}
+          <div className="space-y-6">
+            {/* First Name Field */}
+            <div className="space-y-2">
+              <label className="block text-sm font-medium text-gray-700">
+                First name
+              </label>
+              <input
+                type="text"
+                placeholder="Your first name"
+                className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-colors"
+                {...register("firstName")}
+              />
+              {errors.firstName && (
+                <span className="text-red-500 text-sm">
+                  {errors.firstName.message}
+                </span>
+              )}
             </div>
-          </div>
-          {errors.subject && (
-            <span className="text-red-500 text-sm">{errors.subject.message}</span>
-          )}
-        </div>
-      </div>
 
-      {/* Right Column - Message and Submit */}
-      <div className="basis-0 box-border content-stretch flex flex-col gap-6 md:gap-10 grow items-end justify-start min-h-px min-w-px p-0 relative shrink-0 w-full lg:w-auto">
-        
-        {/* Message Field */}
-        <div className="box-border content-stretch flex flex-col gap-2 items-start justify-start p-0 relative shrink-0 w-full">
-          <label className="flex flex-col font-['DM_Sans:Regular',_sans-serif] font-normal justify-center relative shrink-0 text-[#274348] text-sm md:text-[14px] text-left tracking-tight md:tracking-[-0.14px] w-full">
-            Your message
-          </label>
-          <div className="bg-[#ffffff] box-border content-stretch flex flex-row gap-3 h-[360px] items-start justify-start p-6 relative shrink-0 w-full border border-[#d0dfe5] border-solid focus-within:border-[#19bf98] transition-colors duration-200">
-            <textarea
-              placeholder="What is your question?"
-              className="basis-0 box-border content-stretch flex flex-row gap-2 grow h-full items-start justify-start min-h-px min-w-px px-0 py-[0.5px] relative shrink-0 text-[#274348] text-base md:text-[20px] text-left tracking-tight md:tracking-[-0.2px] bg-transparent border-none outline-none placeholder:text-[#a4b4ba] resize-none"
-              rows={15}
-              {...register("message")}
-            />
-          </div>
-          {errors.message && (
-            <span className="text-red-500 text-sm">{errors.message.message}</span>
-          )}
-        </div>
-
-        {/* Submit Button */}
-        <button
-          type="submit"
-          onClick={handleSubmit(onSubmit)}
-          disabled={isSubmitting}
-          className="bg-[#19bf98] box-border content-stretch flex flex-row gap-3 items-center justify-center pl-8 pr-6 py-4 relative rounded-[999px] shrink-0 cursor-pointer hover:bg-[#15a085] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
-        >
-          <div className="box-border content-stretch flex flex-row gap-2 h-6 items-center justify-center px-0 py-[0.5px] relative shrink-0">
-            <div className="flex flex-col font-['DM_Sans:Bold',_sans-serif] font-bold justify-center relative shrink-0 text-[#ffffff] text-base md:text-[16px] text-left text-nowrap tracking-tight md:tracking-[-0.16px] uppercase">
-              {isSubmitting ? "Sending..." : "Submit"}
+            {/* Last Name Field */}
+            <div className="space-y-2">
+              <label className="block text-sm font-medium text-gray-700">
+                Last name
+              </label>
+              <input
+                type="text"
+                placeholder="Your last name"
+                className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-colors"
+                {...register("lastName")}
+              />
+              {errors.lastName && (
+                <span className="text-red-500 text-sm">
+                  {errors.lastName.message}
+                </span>
+              )}
             </div>
-          </div>
-          <div className="overflow-clip relative shrink-0 w-6 h-6">
-            <div className="absolute flex inset-[18.36%_16.67%_18.41%_18.41%] items-center justify-center">
-              <div className="flex-none h-[15.175px] rotate-[180deg] w-[15.582px]">
-                <div className="relative w-full h-full">
-                  <img
-                    alt="arrow right"
-                    className="block max-w-none w-full h-full"
-                    src="/images/arrow-right.svg"
-                  />
+
+            {/* Order ID Field */}
+            <div className="space-y-2">
+              <label className="block text-sm font-medium text-gray-700">
+                Order ID{" "}
+                <span className="text-gray-500 font-normal">(Optional)</span>
+              </label>
+              <input
+                type="text"
+                placeholder="Your order ID"
+                className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-colors"
+                {...register("orderId")}
+              />
+            </div>
+
+            {/* Subject Field */}
+            <div className="space-y-2">
+              <label className="block text-sm font-medium text-gray-700">
+                Subject
+              </label>
+              <div className="relative">
+                <select
+                  className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-colors appearance-none cursor-pointer"
+                  {...register("subject")}
+                >
+                  <option value="">Select a subject</option>
+                  {subjectOptions.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+                <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                  <svg
+                    className="w-5 h-5 text-gray-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
                 </div>
               </div>
+              {errors.subject && (
+                <span className="text-red-500 text-sm">
+                  {errors.subject.message}
+                </span>
+              )}
             </div>
           </div>
-        </button>
+
+          {/* Right Column - Message and Submit */}
+          <div className="space-y-6">
+            {/* Message Field */}
+            <div className="space-y-2">
+              <label className="block text-sm font-medium text-gray-700">
+                Your message
+              </label>
+              <textarea
+                placeholder="What is your question?"
+                className="w-full px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-colors resize-none h-[360px]"
+                {...register("message")}
+              />
+              {errors.message && (
+                <span className="text-red-500 text-sm">
+                  {errors.message.message}
+                </span>
+              )}
+            </div>
+
+            {/* Submit Button */}
+            <div className="flex justify-end">
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="bg-teal-500 hover:bg-teal-600 disabled:bg-teal-400 text-white font-medium px-8 py-3 flex items-center gap-3 transition-colors disabled:cursor-not-allowed rounded-full"
+              >
+                <span className="uppercase tracking-wide">
+                  {isSubmitting ? "Sending..." : "Submit"}
+                </span>
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Success Message */}
       {showSuccess && (
-        <div className="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-in slide-in-from-right duration-300">
+        <div className="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 shadow-lg z-50">
           <p className="font-medium">Message sent successfully!</p>
         </div>
       )}
-    </div>
+    </form>
   );
 };

@@ -36,15 +36,7 @@ export const WhyItWorks = () => {
               </div>
             </div>
 
-            <div className="overflow-clip relative shrink-0 w-6 h-6">
-              <div className="absolute flex inset-[18.36%_16.67%_18.41%_18.41%] items-center justify-center">
-                <div className="flex-none h-[15.175px] rotate-[180deg] w-[15.582px] group-hover:translate-x-1 transition-transform duration-200">
-                  <div className="relative w-full h-full">
-                    <ArrowRight />
-                  </div>
-                </div>
-              </div>
-            </div>
+            <ArrowRight className="fill-[#274348] w-6 h-6" />
           </Link>
         </div>
 

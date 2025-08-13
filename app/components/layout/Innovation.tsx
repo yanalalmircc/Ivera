@@ -24,18 +24,19 @@ export const Innovation = () => {
   ];
 
   return (
-    <div className="w-full">
-      <div
-        className="w-full bg-[#F5FCFA] p-10 pb-0 gap-[24px] flex flex-col md:px-16 md:py-28 md:gap-28 md:items-center md:justify-center"
-        style={{
-          backgroundImage: 'url("/images/innovation-bg.png")',
-          backgroundSize: "45% 94.59%, auto",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "right center",
-        }}
-      >
+    <div className="w-full max-w-[1400px] mx-auto">
+      <div className="w-full bg-[#F5FCFA] p-10 pb-0 gap-[24px] flex flex-col md:px-16 md:py-28 md:gap-28 md:items-center md:justify-center relative">
+        <div
+          className="w-full h-full absolute top-0 left-0 hidden md:block"
+          style={{
+            backgroundImage: 'url("/images/innovation-bg.png")',
+            backgroundSize: "46% 100%, auto",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "130% center",
+          }}
+        />
         {/* Text */}
-        <div className="flex flex-col gap-[20px] md:gap-8 justify-center items-center text-center md:w-[1240px]">
+        <div className="flex flex-col gap-[20px] md:gap-8 justify-center items-center text-center">
           <h1 className="text-[32px] md:text-[48px] text-[#274348] font-bold md:tracking-[-0.48px] md:leading-[normal]">
             Built on Innovation
           </h1>
@@ -47,7 +48,7 @@ export const Innovation = () => {
         </div>
 
         {/* Benefits Cards */}
-        <div className="flex flex-col md:flex-row gap-6 md:gap-16 items-center md:justify-center md:w-[1240px] md:pl-0 md:pr-[280px] w-full mt-6">
+        <div className="flex flex-col md:flex-row gap-6 md:gap-16 items-center md:justify-center md:pl-0 md:pr-[280px] w-full mt-6">
           {benefits.map((benefit, index) => (
             <div
               key={benefit.id}

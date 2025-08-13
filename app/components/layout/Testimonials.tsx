@@ -33,8 +33,8 @@ export const Testimonials = () => {
   ];
 
   return (
-    <div className="box-border content-stretch flex flex-col gap-6 md:gap-10 items-center justify-center pb-0 pt-16 md:pt-32 px-4 md:px-8 relative w-full">
-      <div className="box-border content-stretch flex flex-col gap-12 md:gap-16 items-center justify-center p-0 relative shrink-0 w-full max-w-[1400px]">
+    <div className="box-border content-stretch flex flex-col gap-6 md:gap-10 items-center justify-center pb-0 pt-16 md:pt-32 relative w-full max-w-[1400px] mx-auto">
+      <div className="box-border content-stretch flex flex-col gap-12 md:gap-16 items-center justify-center p-0 relative shrink-0 w-full ">
         {/* Title Section */}
         <div className="box-border content-stretch flex flex-col gap-6 md:gap-8 items-center justify-start p-0 relative shrink-0 text-[#274348] text-center w-full">
           <div className="font-['Epilogue:Bold',_sans-serif] font-bold relative shrink-0 text-[32px] md:text-[48px] tracking-[-0.32px] md:tracking-[-0.48px] w-full max-w-[1240px]">

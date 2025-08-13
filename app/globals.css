@@ -38,4 +38,17 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+
+  .mobile-bg-innovation {
+    background-image: url("/images/innovation-bg.png");
+    background-size: 45% 94.59%, auto;
+    background-repeat: no-repeat;
+    background-position: right center;
+  }
+
+  @media (min-width: 768px) {
+    .mobile-bg-innovation {
+      background-image: none;
+    }
+  }
 }
