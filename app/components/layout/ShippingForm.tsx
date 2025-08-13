@@ -26,7 +26,7 @@ export const ShippingForm = ({ onSubmit, initialData }: ShippingFormProps) => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors },
     watch,
   } = useForm<ShippingFormData>({
     resolver: zodResolver(shippingSchema),
@@ -163,9 +163,11 @@ export const ShippingForm = ({ onSubmit, initialData }: ShippingFormProps) => {
                 )}
               </div>
             )}
-            {watchedPostcode && watchedPostcode.length > 0 && !isPostcodeValid && (
-              <div className="absolute inset-0 pointer-events-none shadow-[0px_-1px_0px_0px_inset_#d44646]"></div>
-            )}
+            {watchedPostcode &&
+              watchedPostcode.length > 0 &&
+              !isPostcodeValid && (
+                <div className="absolute inset-0 pointer-events-none shadow-[0px_-1px_0px_0px_inset_#d44646]"></div>
+              )}
           </div>
           {watchedPostcode &&
             watchedPostcode.length > 0 &&

@@ -26,9 +26,8 @@ export const PaymentForm = ({ onSubmit }: PaymentFormProps) => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { isSubmitting },
     setValue,
-    watch,
   } = useForm<PaymentFormData>({
     resolver: zodResolver(paymentSchema),
     defaultValues: {
@@ -39,8 +38,6 @@ export const PaymentForm = ({ onSubmit }: PaymentFormProps) => {
       cvc: "",
     },
   });
-
-  const watchedPaymentMethod = watch("paymentMethod");
 
   const handlePaymentMethodChange = (
     method: PaymentFormData["paymentMethod"]

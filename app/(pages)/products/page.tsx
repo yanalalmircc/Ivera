@@ -47,11 +47,11 @@ export default function ProductsPage() {
     setCurrentPage(1); // Reset to first page when sorting changes
   };
 
-  // Handle add to cart
-  const handleAddToCart = (productId: number) => {
-    // TODO: Add product to cart functionality
-    console.log(`Add product ${productId} to cart`);
-  };
+  // // Handle add to cart
+  // const handleAddToCart = (productId: number) => {
+  //   // TODO: Add product to cart functionality
+  //   console.log(`Add product ${productId} to cart`);
+  // };
 
   return (
     <div className="bg-white w-full">

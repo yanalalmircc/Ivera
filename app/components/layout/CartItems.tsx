@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import { Plus, Minus } from "@icons";
 
 interface CartItem {
@@ -17,10 +16,13 @@ interface CartItemsProps {
   onRemoveItem: (productId: number) => void;
 }
 
-export const CartItems = ({ cartItems, onUpdateQuantity, onRemoveItem }: CartItemsProps) => {
+export const CartItems = ({
+  cartItems,
+  onUpdateQuantity,
+  onRemoveItem,
+}: CartItemsProps) => {
   return (
     <div className="basis-0 box-border content-stretch flex flex-col grow items-start justify-start min-h-px min-w-px p-0 relative shrink-0 w-full lg:w-auto">
-      
       {/* Title */}
       <div className="box-border content-stretch flex flex-col gap-5 items-center justify-center pb-5 pt-0 px-0 relative shrink-0 w-full">
         <div className="font-['Epilogue:Bold',_sans-serif] font-bold relative shrink-0 text-[#274348] text-3xl md:text-[40px] text-left tracking-tight md:tracking-[-0.4px] w-full">
@@ -61,7 +63,7 @@ export const CartItems = ({ cartItems, onUpdateQuantity, onRemoveItem }: CartIte
                 <div className="font-['DM_Sans:Bold',_sans-serif] font-bold min-w-full relative shrink-0 text-[#274348] text-base md:text-[16px] text-left w-full">
                   <p className="block leading-[1.5]">{item.name}</p>
                 </div>
-                
+
                 {/* Product Price */}
                 <div className="box-border content-stretch flex flex-row gap-2 items-center justify-center p-0 relative shrink-0">
                   <div className="font-['DM_Sans:Bold',_sans-serif] font-bold relative shrink-0 text-[#19bf98] text-base md:text-[16px] text-left text-nowrap">
@@ -103,7 +105,7 @@ export const CartItems = ({ cartItems, onUpdateQuantity, onRemoveItem }: CartIte
                   <Plus />
                 </button>
               </div>
-              
+
               {/* Remove Button */}
               <div className="box-border content-stretch flex flex-row gap-1 items-center justify-center pb-0 pt-5 px-0 relative shrink-0">
                 <button
@@ -121,7 +123,9 @@ export const CartItems = ({ cartItems, onUpdateQuantity, onRemoveItem }: CartIte
             {/* Total Price */}
             <div className="bg-[#ffffff] box-border content-stretch flex flex-col items-end justify-start leading-[0] p-0 relative self-stretch shrink-0 text-right w-[130px]">
               <div className="font-['DM_Sans:Bold',_sans-serif] font-bold relative shrink-0 text-[#274348] text-base md:text-[16px] tracking-tight md:tracking-[-0.16px] w-full">
-                <p className="block leading-[1.5]">${(item.price * item.quantity).toFixed(2)}</p>
+                <p className="block leading-[1.5]">
+                  ${(item.price * item.quantity).toFixed(2)}
+                </p>
               </div>
               {item.oldPrice && (
                 <div className="font-['DM_Sans:Regular',_sans-serif] font-normal relative shrink-0 text-[#a4b4ba] text-sm md:text-[14px] w-full">
@@ -137,7 +141,10 @@ export const CartItems = ({ cartItems, onUpdateQuantity, onRemoveItem }: CartIte
               <div className="absolute bg-[#d44646] box-border content-stretch flex flex-row gap-2.5 items-center justify-center left-2.5 px-2 py-1 rounded-2xl top-2.5">
                 <div className="font-['DM_Sans:Bold',_sans-serif] font-bold leading-[0] relative shrink-0 text-[#ffffff] text-xs md:text-[9px] text-left text-nowrap tracking-tight md:tracking-[-0.09px]">
                   <p className="block leading-none whitespace-pre">
-                    {Math.round(((item.oldPrice - item.price) / item.oldPrice) * 100)}% OFF
+                    {Math.round(
+                      ((item.oldPrice - item.price) / item.oldPrice) * 100
+                    )}
+                    % OFF
                   </p>
                 </div>
               </div>

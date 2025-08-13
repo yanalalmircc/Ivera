@@ -30,7 +30,8 @@ export const CheckoutContainer = () => {
   );
   const [paymentData, setPaymentData] = useState<PaymentFormData | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
-
+  console.log("Shipping data:", shippingData);
+  console.log("Payment data:", paymentData);
   const handleShippingSubmit = (data: ShippingFormData) => {
     setShippingData(data);
     console.log("Shipping data:", data);
@@ -44,6 +45,7 @@ export const CheckoutContainer = () => {
     }
 
     setPaymentData(data);
+    console.log("Payment data:", data);
     setIsProcessing(true);
 
     try {

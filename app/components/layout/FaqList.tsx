@@ -110,7 +110,7 @@ export const FaqList = () => {
   ];
   return (
     <>
-      {faqData.map((section, sectionIndex) => (
+      {faqData.map((section) => (
         <div
           key={section.title}
           className="box-border content-stretch flex flex-col items-start justify-start p-0 relative shrink-0 w-full"
@@ -125,7 +125,7 @@ export const FaqList = () => {
           </div>
 
           {/* FAQ Items */}
-          {section.items.map((item, itemIndex) => (
+          {section.items.map((item) => (
             <button
               key={item.id}
               className="bg-[#ffffff] box-border content-stretch cursor-pointer flex flex-col gap-6 items-start justify-start overflow-visible px-0 py-8 md:py-10 relative shrink-0 w-full border-b border-[#d0dfe5] border-solid hover:bg-gray-50 transition-colors duration-200"

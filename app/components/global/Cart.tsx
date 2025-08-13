@@ -1,8 +1,4 @@
-interface CartProps {
-  property1?: "Default" | "Variant2";
-}
-
-export const Cart = ({ property1 = "Default" }: CartProps) => {
+export const Cart = () => {
   return (
     <div className="box-border content-stretch flex flex-row gap-2.5 items-center justify-center p-0 relative rounded-[40px] w-full h-full">
       <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-none place-items-start relative shrink-0">
